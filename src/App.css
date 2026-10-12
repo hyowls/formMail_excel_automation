@@ -1,0 +1,384 @@
+:root {
+  --color-border: #d0d7de;
+  --color-muted: #656d76;
+  --color-placeholder: #9aa1a9;
+  --color-primary: #2f6fed;
+  --color-primary-hover: #255ed1;
+  --color-primary-soft: #f0f5ff;
+  --color-danger: #d1242f;
+  --ring-primary: 0 0 0 3px rgba(47, 111, 237, 0.15);
+  --ring-danger: 0 0 0 3px rgba(209, 36, 47, 0.15);
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px;
+}
+
+.card {
+  width: 100%;
+  max-width: 640px;
+  padding: 40px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.card--done {
+  text-align: center;
+}
+
+.card__title {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+}
+
+.card__desc {
+  margin: 0 0 32px;
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+}
+
+.required {
+  margin-left: 2px;
+  color: var(--color-danger);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.field__label {
+  padding: 0;
+  margin-bottom: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+/* legend는 flex gap이 적용되지 않으므로 label과 간격을 맞춤 */
+label.field__label {
+  margin-bottom: 0;
+}
+
+.field__error {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--color-danger);
+}
+
+.field__footer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.field__counter {
+  margin-left: auto;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* 공통 입력 박스 */
+.input,
+.segmented {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+}
+
+.input::placeholder,
+.segmented__input::placeholder {
+  color: var(--color-placeholder);
+}
+
+.input:focus,
+.segmented:focus-within {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--ring-primary);
+}
+
+.is-invalid,
+.input.is-invalid:focus,
+.segmented.is-invalid:focus-within {
+  border-color: var(--color-danger);
+}
+
+.input.is-invalid:focus,
+.segmented.is-invalid:focus-within {
+  box-shadow: var(--ring-danger);
+}
+
+.input--phone {
+  max-width: 240px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 생년월일: YYYY - MM - DD */
+.segmented {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0 14px;
+}
+
+.segmented__input {
+  padding: 12px 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.segmented__input--year {
+  width: 5ch;
+}
+
+.segmented__input--month,
+.segmented__input--day {
+  width: 3ch;
+}
+
+.segmented__dash {
+  padding: 0 6px;
+  color: var(--color-muted);
+  user-select: none;
+}
+
+/* 성별 */
+.radio-group {
+  display: flex;
+  gap: 12px;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.radio input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.radio:has(input:checked) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.radio:has(input:focus-visible) {
+  box-shadow: var(--ring-primary);
+}
+
+/* 주소: 길어지면 줄바꿈되며 높이가 늘어남 (높이는 JS에서 계산) */
+.textarea--address {
+  display: block;
+  resize: none;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.address-row {
+  display: flex;
+  gap: 8px;
+}
+
+.input--zonecode {
+  width: 120px;
+  font-variant-numeric: tabular-nums;
+}
+
+.is-readonly {
+  background: #f6f8fa;
+  cursor: pointer;
+}
+
+.button-secondary {
+  padding: 0 18px;
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-primary);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.button-secondary:hover {
+  background: var(--color-primary-soft);
+}
+
+.button-secondary:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-primary);
+}
+
+.button-secondary[aria-invalid="true"] {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+/* 주소 검색 모달 */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.modal__panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  height: min(560px, 100%);
+  overflow: hidden;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 14px 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.modal__title {
+  margin: 0;
+  font-size: 1.0625rem;
+}
+
+.modal__close {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+
+.modal__close:hover {
+  background: #f6f8fa;
+}
+
+.modal__close:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-primary);
+}
+
+.modal__body {
+  flex: 1;
+  min-height: 0;
+}
+
+/* 문의 내용: 고정 높이, 넘치면 박스 안에서 스크롤 */
+.textarea--message {
+  display: block;
+  height: 240px;
+  resize: none;
+  overflow-y: auto;
+  line-height: 1.6;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.submit-error {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #fff1f0;
+  font-size: 0.875rem;
+  color: var(--color-danger);
+}
+
+.submit:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.35);
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 28px 20px;
+  }
+
+  .input--phone {
+    max-width: none;
+  }
+
+  /* 모바일에서는 모달을 전체 화면으로 */
+  .modal {
+    padding: 0;
+  }
+
+  .modal__panel {
+    max-width: none;
+    height: 100%;
+    border-radius: 0;
+  }
+}

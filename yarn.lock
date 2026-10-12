@@ -983,6 +983,11 @@ qified@^0.10.1:
   dependencies:
     hookified "^2.1.1"
 
+react-daum-postcode@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-daum-postcode/-/react-daum-postcode-4.0.0.tgz#834183cbcb77343b9be5b6fe8ffc90a2635c9936"
+  integrity sha512-2CGR8Aa/5637IKaplJXv5m9S/qQWWYBr30FhQ9mK9nXiisVbTvrpU9D4U1mgr8YYCKw2RgcK8daN+F+PJhW+ig==
+
 react-dom@^19.2.8:
   version "19.3.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.3.0.tgz#a0ff19161d7f4e9be5469a07278b0c06e00f9001"
